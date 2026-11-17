@@ -1,1 +1,610 @@
 
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mohamed & Manar | Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+  --cream:#f8f5ef;
+
+  --champagne:#e8dcc5;
+
+  --gold:#b6975b;
+
+  --dark:#4b4033;
+
+  --muted:#8e8170;
+
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+
+  margin:0;
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  font-family:'Cairo',sans-serif;
+
+  overflow-x:hidden;
+
+}
+
+button{font-family:inherit}
+
+#loader{
+
+  position:fixed;inset:0;z-index:20;
+
+  background:var(--cream);
+
+  display:flex;align-items:center;justify-content:center;
+
+  flex-direction:column;
+
+  transition:opacity .8s,visibility .8s;
+
+}
+
+#loader.hide{opacity:0;visibility:hidden}
+
+.loader-ring{
+
+  width:55px;height:55px;border:2px solid var(--champagne);
+
+  border-top-color:var(--gold);border-radius:50%;
+
+  animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+#intro{
+
+  position:fixed;inset:0;z-index:10;
+
+  background:linear-gradient(rgba(40,30,20,.45),rgba(40,30,20,.55)),
+
+  url('Mohamed.jpeg') center/cover;
+
+  display:flex;align-items:center;justify-content:center;
+
+  padding:20px;transition:opacity 1s,visibility 1s;
+
+}
+
+#intro.hide{opacity:0;visibility:hidden}
+
+.intro-card{
+
+  width:min(440px,100%);padding:45px 25px;
+
+  text-align:center;color:white;
+
+  border:1px solid rgba(255,255,255,.65);
+
+  outline:1px solid rgba(255,255,255,.35);
+
+  outline-offset:8px;
+
+  background:rgba(30,25,20,.2);
+
+  backdrop-filter:blur(5px);
+
+}
+
+.intro-card .small{letter-spacing:4px;font-size:12px}
+
+.intro-card h1{
+
+  font:42px 'Amiri',serif;margin:18px 0 5px;
+
+}
+
+.intro-card p{font-size:14px}
+
+.open-btn{
+
+  margin-top:25px;padding:13px 30px;
+
+  background:var(--champagne);color:var(--dark);
+
+  border:0;border-radius:2px;cursor:pointer;
+
+  font-size:14px;transition:.3s;
+
+}
+
+.open-btn:hover{background:white;transform:translateY(-3px)}
+
+section{padding:85px 20px}
+
+.container{width:min(1000px,100%);margin:auto}
+
+.eyebrow{
+
+  color:var(--gold);letter-spacing:3px;
+
+  font-size:12px;text-align:center;
+
+}
+
+.hero{
+
+  min-height:90vh;position:relative;
+
+  display:flex;align-items:center;justify-content:center;
+
+  text-align:center;color:white;padding:50px 20px;
+
+  background:linear-gradient(rgba(30,24,18,.35),rgba(30,24,18,.65)),
+
+  url('Mohamed.jpeg') center 35%/cover;
+
+}
+
+.hero-content{position:relative;z-index:1}
+
+.hero .eyebrow{color:#f0dfbd}
+
+.hero h1{
+
+  font:clamp(55px,10vw,95px) 'Amiri',serif;
+
+  margin:15px 0;line-height:1.3;
+
+}
+
+.hero .amp{color:#e5c995;font-size:.65em}
+
+.hero p{font-size:17px;letter-spacing:2px}
+
+.gold-line{
+
+  width:75px;height:1px;background:var(--gold);
+
+  margin:25px auto;
+
+}
+
+.invitation{text-align:center;background:var(--cream)}
+
+.invitation-card{
+
+  max-width:720px;margin:35px auto 0;
+
+  padding:50px 25px;border:1px solid var(--champagne);
+
+  position:relative;background:rgba(255,255,255,.35);
+
+}
+
+.invitation-card:before,.invitation-card:after{
+
+  content:'✦';position:absolute;color:var(--gold);
+
+  font-size:22px;background:var(--cream);padding:0 10px;
+
+}
+
+.invitation-card:before{top:-14px;left:calc(50% - 15px)}
+
+.invitation-card:after{bottom:-14px;left:calc(50% - 15px)}
+
+.invitation-card h2{
+
+  font:34px 'Amiri',serif;color:var(--gold);
+
+}
+
+.invitation-card p{line-height:2.2;font-size:16px}
+
+.fathers{
+
+  display:flex;justify-content:center;gap:50px;
+
+  flex-wrap:wrap;margin:30px 0;
+
+}
+
+.father{min-width:200px}
+
+.father strong{display:block;font-size:17px}
+
+.father span{font-size:13px;color:var(--muted)}
+
+.date-section{
+
+  text-align:center;background:#eee7da;
+
+}
+
+.date-big{
+
+  font:clamp(45px,9vw,75px) 'Amiri',serif;
+
+  color:var(--gold);margin:20px 0 0;
+
+}
+
+.date-label{letter-spacing:3px;color:var(--muted)}
+
+.countdown{
+
+  display:flex;justify-content:center;gap:15px;
+
+  flex-wrap:wrap;margin-top:35px;
+
+}
+
+.time-box{
+
+  width:85px;padding:15px 5px;
+
+  background:rgba(255,255,255,.55);
+
+  border:1px solid #dfd1b8;
+
+}
+
+.time-box strong{
+
+  display:block;font:30px 'Amiri',serif;color:var(--gold);
+
+}
+
+.time-box span{font-size:11px;color:var(--muted)}
+
+.photo-section{text-align:center}
+
+.photo-frame{
+
+  max-width:650px;margin:35px auto 0;
+
+  padding:12px;border:1px solid var(--champagne);
+
+  background:white;
+
+}
+
+.photo-frame img{width:100%;display:block}
+
+.venue{
+
+  background:#4b4033;color:#fff;text-align:center;
+
+}
+
+.venue .eyebrow{color:#e3c995}
+
+.venue h2{font:40px 'Amiri',serif;margin:15px 0}
+
+.venue p{line-height:2;color:#eee2d0}
+
+.venue-name{
+
+  color:#e4c995;font:30px 'Amiri',serif;
+
+  margin:20px 0 5px;
+
+}
+
+.closing{text-align:center;padding:100px 20px}
+
+.closing h2{font:45px 'Amiri',serif;color:var(--gold)}
+
+.closing p{color:var(--muted)}
+
+footer{
+
+  text-align:center;padding:20px;
+
+  font-size:11px;color:#a99a85;
+
+  border-top:1px solid var(--champagne);
+
+}
+
+.reveal{
+
+  opacity:0;transform:translateY(25px);
+
+  transition:opacity .8s,transform .8s;
+
+}
+
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+
+  section{padding:65px 17px}
+
+  .invitation-card{padding:40px 18px}
+
+  .fathers{gap:25px}
+
+  .hero{min-height:85vh}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="loader">
+
+  <div class="loader-ring"></div>
+
+  <p>Preparing your invitation...</p>
+
+</div>
+
+<div id="intro">
+
+  <div class="intro-card">
+
+    <div class="small">YOU ARE INVITED TO</div>
+
+    <h1>Mohamed & Manar</h1>
+
+    <p>A special day, a beautiful beginning</p>
+
+    <button class="open-btn" onclick="openInvitation()">افتح الدعوة ♡</button>
+
+  </div>
+
+</div>
+
+<audio id="music" loop preload="auto">
+
+  <source src="Asd.mp3" type="audio/mpeg">
+
+</audio>
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <h1>محمد <span class="amp">&</span> منار</h1>
+
+    <div class="gold-line"></div>
+
+    <p>بداية حكاية.. وأجمل قدر</p>
+
+    <p>10 . 12 . 2026</p>
+
+  </div>
+
+</header>
+
+<section class="invitation">
+
+  <div class="container reveal">
+
+    <div class="eyebrow">THE INVITATION</div>
+
+    <h2 style="font:38px 'Amiri',serif">دعوة لحضور عقد قران</h2>
+
+    <div class="invitation-card">
+
+      <p>بكل الحب والفرحة، نتشرف بدعوتكم لمشاركتنا أجمل لحظات العمر، وحضور عقد قران</p>
+
+      <h2>محمد & منار</h2>
+
+      <div class="gold-line"></div>
+
+      <div class="fathers">
+
+        <div class="father">
+
+          <span>كريم عائلة العريس</span>
+
+          <strong>الأستاذ حامد محمد عرفه الزغبي</strong>
+
+        </div>
+
+        <div class="father">
+
+          <span>كريم عائلة العروسة</span>
+
+          <strong>الأستاذ سعد سيد سالم</strong>
+
+        </div>
+
+      </div>
+
+      <p>نسعد بتشريفكم ومشاركتكم فرحتنا، فوجودكم يزيد يومنا جمالًا وسعادة</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="date-section">
+
+  <div class="container reveal">
+
+    <div class="eyebrow">SAVE THE DATE</div>
+
+    <div class="date-big">10 ديسمبر 2026</div>
+
+    <div class="date-label">THURSDAY</div>
+
+    <div class="gold-line"></div>
+
+    <p>الوقت المتبقي على يومنا المميز</p>
+
+    <div class="countdown">
+
+      <div class="time-box"><strong id="days">00</strong><span>يوم</span></div>
+
+      <div class="time-box"><strong id="hours">00</strong><span>ساعة</span></div>
+
+      <div class="time-box"><strong id="minutes">00</strong><span>دقيقة</span></div>
+
+      <div class="time-box"><strong id="seconds">00</strong><span>ثانية</span></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="photo-section">
+
+  <div class="container reveal">
+
+    <div class="eyebrow">OUR MOMENTS</div>
+
+    <h2 style="font:38px 'Amiri',serif">حكايتنا الجميلة</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="photo-frame">
+
+      <img src="Mohamed2.jpeg" alt="Mohamed and Manar">
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="venue">
+
+  <div class="container reveal">
+
+    <div class="eyebrow">THE WEDDING CEREMONY</div>
+
+    <h2>موعدنا مع الفرحة</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="venue-name">مسجد عبد اللطيف</div>
+
+    <p>الخميس 10 ديسمبر 2026</p>
+
+    <p>بعد صلاة العشاء</p>
+
+    <p>في انتظاركم لنحتفل معًا بهذه المناسبة السعيدة</p>
+
+  </div>
+
+</section>
+
+<section class="closing">
+
+  <div class="container reveal">
+
+    <div class="eyebrow">WITH LOVE</div>
+
+    <h2>وجودكم فرحتنا</h2>
+
+    <div class="gold-line"></div>
+
+    <p>اللهم بارك لهما وبارك عليهما واجمع بينهما في خير</p>
+
+    <h2 style="font-size:35px">Mohamed & Manar</h2>
+
+  </div>
+
+</section>
+
+<footer>MADE WITH LOVE · 2026</footer>
+
+<script>
+
+window.addEventListener('load',()=>{
+
+  setTimeout(()=>document.getElementById('loader').classList.add('hide'),500);
+
+});
+
+function openInvitation(){
+
+  document.getElementById('intro').classList.add('hide');
+
+  const music=document.getElementById('music');
+
+  music.play().catch(()=>{});
+
+}
+
+const target=new Date('2026-12-10T00:00:00+02:00').getTime();
+
+function updateCountdown(){
+
+  const now=Date.now();
+
+  let diff=target-now;
+
+  if(diff<0) diff=0;
+
+  const days=Math.floor(diff/(1000*60*60*24));
+
+  const hours=Math.floor((diff/(1000*60*60))%24);
+
+  const minutes=Math.floor((diff/(1000*60))%60);
+
+  const seconds=Math.floor((diff/1000)%60);
+
+  document.getElementById('days').textContent=String(days).padStart(2,'0');
+
+  document.getElementById('hours').textContent=String(hours).padStart(2,'0');
+
+  document.getElementById('minutes').textContent=String(minutes).padStart(2,'0');
+
+  document.getElementById('seconds').textContent=String(seconds).padStart(2,'0');
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+const observer=new IntersectionObserver(entries=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add('show');
+
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+},{threshold:.15});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+</script>
+
+</body>
+
+</html>
